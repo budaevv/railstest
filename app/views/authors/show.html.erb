@@ -1,0 +1,31 @@
+<p>
+  <strong>Fio:</strong>
+  <%= @author.fio %>
+</p>
+
+<h2>Books:</h2>
+
+<table>
+  <tr><th>Title</th><th>Year</th><th>Delete</th></tr>
+  <% @author.books.each do |book| %>
+  <tr>
+    <td>
+      <%= book.title %>
+    </td>
+    <td>
+      <%= book.year %>
+    </td>
+    <td>
+    <%= button_to 'Delete', [book.author, book],
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %>
+    </td>
+  </tr>
+  <% end %>
+</table>
+
+<h2>Add a book:</h2>
+<%= render 'books/form' %>
+
+<%= link_to 'Back', authors_path %>
+<%= link_to 'Edit', edit_author_path(@author) %> |

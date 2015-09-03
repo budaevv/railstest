@@ -1,0 +1,128 @@
+  <strong>Graphs</strong><br/><br/>
+
+  <script>
+      (function() {
+          jQuery(function() {
+
+              var labelsArr =
+                      [<% @booksbyyear.each do |by| %>
+                          "<%= by.year %>",
+                          <% end %>];
+              var datasArr =
+                      [<% @booksbyyear.each do |by| %>
+                          <%= by.c %>,
+                          <% end %>];
+
+              var data1 = {
+                  labels: labelsArr,
+                  datasets: [
+                      {
+                          fillColor: "rgba(151,187,205,0.5)",
+                          strokeColor: "rgba(151,187,205,1)",
+                          pointColor: "rgba(151,187,205,1)",
+                          pointStrokeColor: "#fff",
+                          data: datasArr
+                      }
+                  ]
+              };
+
+              new Chart($("#canvas1").get(0).getContext("2d")).Line(data1);
+
+              labelsArr =
+                      [<% @topauthors.each do |by| %>
+                          "<%= by.fio %>",
+                          <% end %>];
+              datasArr =
+                      [<% @topauthors.each do |by| %>
+                          <%= by.c %>,
+                          <% end %>];
+
+              var data2 = {
+                  labels: labelsArr,
+                  datasets: [
+                      {
+                          fillColor: "rgba(151,187,205,0.5)",
+                          strokeColor: "rgba(151,187,205,1)",
+                          pointColor: "rgba(151,187,205,1)",
+                          pointStrokeColor: "#fff",
+                          data: datasArr
+                      }
+                  ]
+              };
+
+              new Chart($("#canvas2").get(0).getContext("2d")).Bar(data2);
+
+              labelsArr =
+                      [<% @authoravarge.each do |by| %>
+                          "<%= by.fio %>",
+                          <% end %>];
+              datasArr =
+                      [<% @authoravarge.each do |by| %>
+                          <%= by.c %>,
+                          <% end %>];
+
+              var data3 = {
+                  labels: labelsArr,
+                  datasets: [
+                      {
+                          fillColor: "rgba(151,187,205,0.5)",
+                          strokeColor: "rgba(151,187,205,1)",
+                          pointColor: "rgba(151,187,205,1)",
+                          pointStrokeColor: "#fff",
+                          data: datasArr
+                      }
+                  ]
+              };
+
+              new Chart($("#canvas3").get(0).getContext("2d")).Line(data3);
+
+              labelsArr =
+                      [<% @booksbyauthor.each do |by| %>
+                          "<%= by.fio %>",
+                          <% end %>];
+              datasArr =
+                      [<% @booksbyauthor.each do |by| %>
+                          <%= by.c %>,
+                          <% end %>];
+
+              var data4 = {
+                  labels: labelsArr,
+                  datasets: [
+                      {
+                          fillColor: "rgba(151,187,205,0.5)",
+                          strokeColor: "rgba(151,187,205,1)",
+                          pointColor: "rgba(151,187,205,1)",
+                          pointStrokeColor: "#fff",
+                          data: datasArr
+                      }
+                  ]
+              };
+
+              new Chart($("#canvas4").get(0).getContext("2d")).Line(data4);
+
+          });
+
+      }).call(this);
+
+  </script>
+
+  <table>
+    <tr><td>
+      <h>Books by years:</h><br/>
+      <canvas id="canvas1" height="450" width="1000"/>
+    </td></tr>
+    <tr><td>
+      <h>Top 10 authors by books count:</h><br/>
+      <canvas id="canvas2" height="450" width="1000"/>
+    </td></tr>
+    <tr><td>
+      <h>Avarage books count by author for year:</h><br/>
+      <canvas id="canvas3" height="450" width="1000"/>
+    </td></tr>
+    <tr><td>
+      <h>Summ books count for author:</h><br/>
+      <canvas id="canvas4" height="450" width="1000"/>
+    </td></tr>
+  </table>
+
+

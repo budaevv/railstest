@@ -1,0 +1,29 @@
+<h1>Listing authors</h1>
+
+<%= link_to 'New author', new_author_path %>
+
+<%=h @authors.length %>
+
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Fio</th>
+  </tr>
+
+  <% @authors.each do |author| %>
+      <tr>
+        <td><%= author.id %></td>
+        <td><%= author.fio %></td>
+        <td><%= link_to 'Show', author_path(author) %></td>
+        <td><%= link_to 'Edit', edit_author_path(author) %></td>
+        <td><%= button_to "Delete",author_path(author.id), :method => :delete, :class => "delete", :confirm => "Are you sure ?"%></td>
+      </tr>
+  <% end %>
+
+  <tr>
+    <td colspan="5">
+      <%= will_paginate @authors %>
+    </td>
+  </tr>
+</table>
+

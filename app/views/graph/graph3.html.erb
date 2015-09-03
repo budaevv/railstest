@@ -1,0 +1,19 @@
+
+<table>
+  <tr><td>
+    <h>Books by years:</h><br/>
+    <%= make_graph_from_sql @booksbyyear , 'canvas1' , "Line" %>
+  </td></tr>
+  <tr><td>
+    <h>Top 10 authors by books count:</h><br/>
+    <%= make_graph_from_sql @topauthors , 'canvas2' , "Bar" %>
+  </td></tr>
+  <tr><td>
+    <h>Avarage books count by author for year:</h><br/>
+    <%= make_graph_from_sql @authoravarge , 'canvas3' , "Line" %>
+  </td></tr>
+  <tr><td>
+    <h>Summ books count for author:</h><br/>
+    <%= make_graph_from_sql @booksbyauthor , 'canvas4' , "Line" %>
+  </td></tr>
+</table>
