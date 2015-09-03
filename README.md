@@ -26,3 +26,11 @@ set charset Utf8;
 7) start ROR server using 'rails server' command
 
 8) go to localhost:300 to show welcome page
+
+
+What have been done:
+
+1) Simple CRUD mechanism for filling data of Authors and books with paging
+2) Seed mechanism to fill data automatically
+3) Graph contloller to view graphic data via chartjs library using 3 methods, see: app\controllers\graph_controller.rb
+4) Gem module : graph_form_sql to retrieve data from database and show it in the html page as chart diagram
